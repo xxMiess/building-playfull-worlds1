@@ -13,7 +13,7 @@ public class Shooting : MonoBehaviour {
 	void Start () {
 		if (cam == null)
         {
-            Debug.LogError("no camera reference");
+            Debug.LogError("firstPCamera");
             this.enabled = false;
         }
 	}

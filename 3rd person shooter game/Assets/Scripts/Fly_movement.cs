@@ -8,6 +8,7 @@ public class Fly_movement : MonoBehaviour {
     public Rigidbody rigidbody;
     float translation;
     float rotation;
+
     private void Start()
     {
         
@@ -30,7 +31,18 @@ public class Fly_movement : MonoBehaviour {
         //transform.Translate(0, -0.1f, 0);
     }
 
-    private void FixedUpdate()
+    void OnTriggerEnter(Collider other)
+    {
+        AudioSource pickupsound = other.GetComponent<AudioSource>();
+        pickupsound.Play();
+
+        if (other.gameObject.CompareTag("Pick Up"))
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
+
+        private void FixedUpdate()
     {
         rigidbody.MovePosition( transform.position + transform.forward* translation + -transform.up * gravity * Time.deltaTime);
         //rigidbody.MovePosition(transform.position + );

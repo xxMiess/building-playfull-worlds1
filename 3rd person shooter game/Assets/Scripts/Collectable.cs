@@ -30,6 +30,8 @@ public class Collectable : MonoBehaviour {
         if (other.gameObject.CompareTag("Pick Up"))
         {
             other.gameObject.SetActive(false);
+            pickupsound.enabled = true;
+            pickupsound.Play();
         }
     }
 }
